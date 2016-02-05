@@ -1,0 +1,47 @@
+.login-navigation li a {
+    color: #fff
+}
+
+.profile-menu > a {
+    background: url(/img/ibi-lorenzini-logo.png) no-repeat center center;
+}
+
+/*AUTH LOGIN STYLES*/
+
+body.login-content:before {
+	display: none;
+}
+
+/*SIDEBAR ADMIN STYLES*/
+
+.admin-logo {
+	margin-top: 5%;
+}
+.login-content {
+	height: auto;
+	background: #e6f8f8;
+}
+.lc-block.toggled {
+	margin-top: 6%;
+	background: #00509a;
+	color: #fff;
+}
+.lc-block.toggled i {
+	color: #fff;
+}
+
+.lc-block:not(.lcb-alt) .btn-login {
+	background: #1fa9ad;
+}
+
+#header {
+	background: #00509a;
+}
+
+.profile-menu > .profile-info {
+	background: rgba(0,0,0,0.37);
+  padding: 7px 14px;
+  color: #fff;  
+  position: relative;
+}
+
