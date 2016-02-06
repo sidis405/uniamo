@@ -15,7 +15,7 @@
             
             <ul class="actions">
                 <li>
-                    <a href="/admin/news">
+                    <a href="/admin/pagine">
                         <i class="zmdi zmdi-format-list-bulleted"></i>
                     </a>
                 </li>
@@ -32,38 +32,32 @@
                 </li>
             </ul>
         </div>
-        <form role="form" method="POST" action="/admin/news/{{$news->id}}" enctype="multipart/form-data">
+        <form role="form" method="POST" action="/admin/pagine/{{$page->id}}" enctype="multipart/form-data">
         <input type="hidden" name="_method" value="PUT">
-        <input type="hidden" name="news_id" value="{{$news->id}}">
+        <input type="hidden" name="page_id" value="{{$page->id}}">
             {!! csrf_field() !!}
             <div class="card">
                 <div class="card-header">
-                    <h2>Modifica news : '{{$news->title}}'</h2>
+                    <h2>Modifica pagine : '{{$page->title}}'</h2>
                 </div>
                 
                 <div class="card-body card-padding">
                     <div class="form-group fg-line">
                         <label for="title">Titolo</label>
-                        <input type="text" class="form-control input-sm" id="title" placeholder="Il titolo della news" name="title" value="{{$news->title}}" required>
+                        <input type="text" class="form-control input-sm" id="title" placeholder="Il titolo della pagina" name="title" value="{{$page->title}}" required>
                     </div>
-                    <div class="form-group fg-line">
-                        <label for="excerpt">Breve descrizione</label>
-                        <textarea class="form-control"  rows="5" id="excerpt"  name="excerpt"  placeholder="La descrizione della news" required>{{$news->excerpt}}</textarea>
-                    </div>
-                    <div class="form-group fg-line">
-                        @include('admin.news.immagine_partial')
-                    </div>
+                    
                 </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
-                    <h2>Testo news</h2>
+                    <h2>Testo pagina</h2>
                 </div>
                 
                 <div class="card-body card-padding">
                     <div class="row">
-                        <textarea name="body"  class="html-editor" required>{{$news->body}}</textarea>
+                        <textarea name="content"  class="html-editor" required>{{$page->content}}</textarea>
                     </div>
                 </div>
             </div>
@@ -75,8 +69,8 @@
                 
                 <div class="card-body card-padding">
                     <div class="row">
-                        @include('admin.layouts.partials.categories_partial', array('selected' => array_pluck($news->categories, 'id')))
-                        @include('admin.layouts.partials.tags_partial', array('selected' => array_pluck($news->tags, 'id')))
+                        @include('admin.layouts.partials.categories_partial', array('selected' => array_pluck($page->categories, 'id')))
+                        @include('admin.layouts.partials.tags_partial', array('selected' => array_pluck($page->tags, 'id')))
                     </div>
                 </div>
             </div>
@@ -86,9 +80,9 @@
                 <div class="card-body card-padding">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="on" name="active" @if($news->active == 1) checked @endif>
+                            <input type="checkbox" value="on" name="active" @if($page->active == 1) checked @endif>
                             <i class="input-helper"></i>
-                            Pubblica questa News
+                            Pubblica questa Pagina
                         </label>
                     </div>
                 </div>

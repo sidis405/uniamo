@@ -4,7 +4,9 @@ namespace Uniamo\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use Uniamo\Repositories\CategoriesRepo;
 use Uniamo\Repositories\PagesRepo;
+use Uniamo\Repositories\TagsRepo;
 use Illuminate\Http\Request;
 
 
@@ -30,9 +32,11 @@ class PagesController extends AdminController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(CategoriesRepo $categories_repo, TagsRepo $tags_repo)
     {
-        return view('admin.pages.create');
+        $categories = $categories_repo->getAll();
+        $tags = $tags_repo->getAll();
+        return view('admin.pages.create', compact('categories', 'tags'));
     }
 
 
@@ -71,11 +75,14 @@ class PagesController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, PagesRepo $pages_repo)
+    public function edit($id, PagesRepo $pages_repo, CategoriesRepo $categories_repo, TagsRepo $tags_repo)
     {
+        $categories = $categories_repo->getAll();
+        $tags = $tags_repo->getAll();
+
         $page = $pages_repo->getById($id);
 
-        return view('admin.pages.edit', compact('page'));
+        return view('admin.pages.edit', compact('page', 'categories', 'tags'));
     }
 
     /**

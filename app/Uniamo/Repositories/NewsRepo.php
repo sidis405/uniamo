@@ -42,6 +42,6 @@ class NewsRepo
 
     public function getById($id)
     {
-        return News::where('id', $id)->first();
+        return News::with('categories', 'tags')->where('id', $id)->first();
     } 
 }

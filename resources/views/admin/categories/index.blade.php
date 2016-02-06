@@ -12,11 +12,11 @@
             <section id="content">
                 <div class="container">
                     <div class="block-header">
-                        <h2>News</h2>
+                        <h2>Categorie</h2>
 
                          <ul class="actions">
                             <li>
-                                <a href="/admin/news/crea">
+                                <a href="/admin/categorie/crea">
                                     <i class="zmdi zmdi-plus-circle-o"></i>
                                 </a>
                             </li>
@@ -29,6 +29,10 @@
                                     <li>
                                         <a href="" class="refresh-page">Aggiorna pagina</a>
                                     </li>
+                                    <li>
+                                        <a href="/admin/news">Vai a News</a>
+                                        <a href="/admin/news/tags">Vai a Tags</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -38,25 +42,27 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h2>News <small>Lista di News presenti nel database.</small></h2>
+                            <h2>Categorie <small>Le categorie associate a News e Pagine.</small></h2>
                         </div>
                         
                         <table id="data-table-command" class="table table-striped table-vmiddle">
                             <thead>
                                 <tr>
                                     <th data-column-id="id" data-identifier="true"  data-type="numeric">ID</th>
-                                    <th data-column-id="titolo">Titolo</th>
-                                    <th data-column-id="data-creazione">Data Creazione</th>
+                                    <th data-column-id="category">Categoria</th>
+                                    <th data-column-id="news" >News</th>
+                                    <th data-column-id="pages" >Pagine</th>
                                     <th data-column-id="commands" data-formatter="commands" data-sortable="false">Azioni</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                            @foreach($news as $item)
+                            @foreach($categories as $category)
                                 <tr>
-                                    <td>{{$item->id}}</td>
-                                    <td>{{$item->title}}</td>
-                                    <td>{{$item->created_at->format('d-m-y H:i')}}</td>
+                                    <td>{{$category->id}}</td>
+                                    <td>{{$category->category}}</td>
+                                    <td>{{count($category->news)}}</td>
+                                    <td>{{count($category->pages)}}</td>
                                 </tr>
                             @endforeach
                                 
@@ -75,7 +81,7 @@
         <script src="/adm/vendors/bootgrid/jquery.bootgrid.js"></script>
 
         <!-- Data Table -->
-        <script src="/adm/js/bootgrid-news.js"></script>
+        <script src="/adm/js/bootgrid-categorie.js"></script>
 
 
 @stop
@@ -85,7 +91,7 @@
         
     <script>
     
-    activateSidebar('news_menu', 'lista');
+    activateSidebar('taxonomy_menu', 'categories');
 
     </script>    
 

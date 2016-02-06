@@ -29,11 +29,11 @@ class CategoriesRepo
 
     public function getAll()
     {
-        return Categories::with('news')->orderBy('nome')->get();
+        return Categories::with('news', 'pages')->orderBy('category')->get();
     } 
 
     public function getById($id)
     {
-        return Categories::where('id', $id)->with('news')->first();
+        return Categories::where('id', $id)->with('news', 'pages')->first();
     } 
 }

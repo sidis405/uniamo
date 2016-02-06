@@ -31,7 +31,8 @@ class UpdateCategoryCommandHandler
      */
     public function handle(UpdateCategoryCommand $command)
     {
-        $active = ($command->active === 'on') ? 1 : 0;
+        $active = 1;
+        // $active = ($command->active === 'on') ? 1 : 0;
 
         $category_object = Categories::edit($command->category_id, $command->category, $active);
 

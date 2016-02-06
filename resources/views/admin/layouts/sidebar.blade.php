@@ -25,7 +25,7 @@
                 <a href=""><i class="zmdi zmdi-widgets"></i> Pagine</a>
                 <ul>
                     <li><a id="pagine_menu_lista_pagine" href="/admin/pagine">Lista Pagine</a></li>
-                    <li><a id="pagine_menu_aggiungi_prodotto"  href="/admin/pagine/crea">Aggiungi Pagina</a></li>
+                    <li><a id="pagine_menu_aggiungi_pagina"  href="/admin/pagine/crea">Aggiungi Pagina</a></li>
                 </ul>
             </li>
             <li class="sub-menu" id="utenti_menu">
@@ -41,14 +41,20 @@
             <li class="sub-menu" id="news_menu">
                 <a href=""><i class="zmdi zmdi-comment-edit"></i>News</a>
                 <ul>
-                    <li><a href="/admin/news" id="news_menu_modifiche">Lista News</a></li>
-                    <li><a href="/admin/news/crea" id="news_menu_slider">Aggiungi News</a></li>
-                    <li><a href="/admin/news/categorie" id="news_menu_slider">Categorie News</a></li>
-                    <li><a href="/admin/news/tags" id="news_menu_slider">Tag News</a></li>
+                    <li><a href="/admin/news" id="news_menu_lista">Lista News</a></li>
+                    <li><a href="/admin/news/crea" id="news_menu_aggiungi_news">Aggiungi News</a></li>
                 </ul>
             </li>
 
-            <li><a href="/admin/news"  id="lista_news"><i class="zmdi zmdi-border-left"></i> Menu di navigazione</a></li>
+            <li class="sub-menu" id="taxonomy_menu">
+                <a href=""><i class="zmdi zmdi-remote-control-alt"></i>Categorie / Tags</a>
+                <ul>
+                    <li><a href="/admin/categorie" id="taxonomy_menu_categories">Categorie</a></li>
+                    <li><a href="/admin/tags" id="taxonomy_menu_tags">Tag</a></li>
+                </ul>
+            </li>
+
+            <li><a href="/admin/menu"  id="lista_news"><i class="zmdi zmdi-border-left"></i> Menu di navigazione</a></li>
 
            
             <li><a href="/admin/impostazioni"><i class="zmdi zmdi-settings"></i> Impostazioni</a></li>

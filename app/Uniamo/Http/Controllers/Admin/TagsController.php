@@ -45,11 +45,12 @@ class TagsController extends AdminController
      */
     public function store(Request $request)
     {
+        
         $data = $this->manageUploads($request);
 
         $tag = $this->dispatchFrom('Uniamo\Commands\Tags\CreateTagCommand', $request, $data);
         
-        return redirect()->to('/admin/news/tags');
+        return redirect()->to('/admin/tags');
     }
 
     /**
@@ -93,7 +94,7 @@ class TagsController extends AdminController
 
         flash()->success('Tag aggiornato correttamente.');
 
-        return redirect()->to('/admin/news/tags');
+        return redirect()->to('/admin/tags');
     }
 
     /**

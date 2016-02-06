@@ -31,7 +31,9 @@ class CreateCategoryCommandHandler
      */
     public function handle(CreateCategoryCommand $command)
     {
-        $active = ($command->active === 'on') ? 1 : 0;
+
+        $active = 1;
+        // $active = ($command->active === 'on') ? 1 : 0;
 
 
         $category_object = Categories::make($command->category, $active);

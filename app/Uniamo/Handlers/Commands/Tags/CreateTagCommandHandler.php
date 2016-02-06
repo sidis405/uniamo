@@ -31,7 +31,9 @@ class CreateTagCommandHandler
      */
     public function handle(CreateTagCommand $command)
     {
-        $active = ($command->active === 'on') ? 1 : 0;
+        
+        $active = 1;
+        // $active = ($command->active === 'on') ? 1 : 0;
 
 
         $tag_object = Tags::make($command->tag, $active);

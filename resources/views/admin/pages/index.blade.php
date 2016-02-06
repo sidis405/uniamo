@@ -12,11 +12,11 @@
             <section id="content">
                 <div class="container">
                     <div class="block-header">
-                        <h2>News</h2>
+                        <h2>Pagine</h2>
 
                          <ul class="actions">
                             <li>
-                                <a href="/admin/news/crea">
+                                <a href="/admin/pagine/crea">
                                     <i class="zmdi zmdi-plus-circle-o"></i>
                                 </a>
                             </li>
@@ -38,7 +38,7 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h2>News <small>Lista di News presenti nel database.</small></h2>
+                            <h2>Pagine <small>Lista di Pagine presenti nel database.</small></h2>
                         </div>
                         
                         <table id="data-table-command" class="table table-striped table-vmiddle">
@@ -52,7 +52,7 @@
                             </thead>
                             <tbody>
 
-                            @foreach($news as $item)
+                            @foreach($pages as $item)
                                 <tr>
                                     <td>{{$item->id}}</td>
                                     <td>{{$item->title}}</td>
@@ -75,7 +75,7 @@
         <script src="/adm/vendors/bootgrid/jquery.bootgrid.js"></script>
 
         <!-- Data Table -->
-        <script src="/adm/js/bootgrid-news.js"></script>
+        <script src="/adm/js/bootgrid-pagine.js"></script>
 
 
 @stop
@@ -85,7 +85,7 @@
         
     <script>
     
-    activateSidebar('news_menu', 'lista');
+    activateSidebar('pagine_menu', 'lista_pagine');
 
     </script>    
 

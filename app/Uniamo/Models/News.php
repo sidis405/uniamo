@@ -16,7 +16,7 @@ class News extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tags::class, 'news_tags', 'news_id', 'category_id');
+        return $this->belongsToMany(Tags::class, 'news_tags', 'news_id', 'tag_id');
     }
 
     public static function make($title, $excerpt, $body, $active){

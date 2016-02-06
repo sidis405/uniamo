@@ -42,12 +42,12 @@
                 
                 <div class="card-body card-padding">
                     <div class="form-group fg-line">
-                        <label for="titolo">Titolo</label>
-                        <input type="text" class="form-control input-sm" id="titolo" placeholder="Il titolo della news" name="titolo" required>
+                        <label for="title">Titolo</label>
+                        <input type="text" class="form-control input-sm" id="title" placeholder="Il titolo della news" name="title" required>
                     </div>
                     <div class="form-group fg-line">
-                        <label for="formulazione">Breve descrizione</label>
-                        <textarea class="form-control"  rows="5" id="descrizione"  name="descrizione"  placeholder="La descrizione della news" required></textarea>
+                        <label for="excerpt">Breve descrizione</label>
+                        <textarea class="form-control"  rows="5" id="excerpt"  name="excerpt"  placeholder="La descrizione della news" required></textarea>
                     </div>
                     <div class="form-group fg-line">
                         <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -56,7 +56,7 @@
                                 <span class="btn btn-info btn-file">
                                     <span class="fileinput-new">Seleziona immagine</span>
                                     <span class="fileinput-exists">Cambia</span>
-                                    <input type="file" name="immagine_path" required>
+                                    <input type="file" name="image_path" required>
                                 </span>
                                 <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
                             </div>
@@ -72,10 +72,24 @@
                 
                 <div class="card-body card-padding">
                     <div class="row">
-                        <textarea name="testo"  class="html-editor" required></textarea>
+                        <textarea name="body"  class="html-editor" required></textarea>
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Categoria e Tags</h2>
+                </div>
+                
+                <div class="card-body card-padding">
+                    <div class="row">
+                        @include('admin.layouts.partials.categories_partial', array('selected' => []))
+                        @include('admin.layouts.partials.tags_partial', array('selected' => []))
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 
                 <div class="card-body card-padding">
@@ -88,6 +102,9 @@
                     </div>
                 </div>
             </div>
+
+            
+
             <div class="card">
                 
                 <div class="card-body card-padding">
@@ -126,4 +143,20 @@
         // $('.textarea').ckeditor(); // if class is prefered.
 
     </script>
+
+<script src="/adm/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+<script src="/adm/vendors/bower_components/summernote/dist/summernote.min.js"></script>
+<script src="/adm/vendors/chosen_v1.4.2/chosen.jquery.min.js"></script>
+<script src="/adm/vendors/bower_components/autosize/dist/autosize.min.js"></script>
+@stop
+
+@section('sidebar_scripts')
+        
+    <script>
+    
+    activateSidebar('news_menu', 'aggiungi_news');
+
+    </script>    
+
+
 @stop

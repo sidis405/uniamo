@@ -1,13 +1,13 @@
 <?php
 
-namespace Uniamo\Events\Categories;
+namespace Uniamo\Events\Pages;
 
 use Event;
-use Uniamo\Models\Categories;
+use Uniamo\Models\Pages;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class CategoryWasUpdated extends Event
+class PageWasUpdated extends Event
 {
     use SerializesModels;
 
@@ -16,9 +16,9 @@ class CategoryWasUpdated extends Event
      *
      * @return void
      */
-    public function __construct(Categories $category)
+    public function __construct(Pages $page)
     {
-        $this->category = $category;
+        $this->page = $page;
     }
 
     /**

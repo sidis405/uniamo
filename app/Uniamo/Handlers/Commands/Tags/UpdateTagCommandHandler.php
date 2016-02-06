@@ -31,7 +31,8 @@ class UpdateTagCommandHandler
      */
     public function handle(UpdateTagCommand $command)
     {
-        $active = ($command->active === 'on') ? 1 : 0;
+        $active = 1;
+        // $active = ($command->active === 'on') ? 1 : 0;
 
         $category_object = Tags::edit($command->tag_id, $command->tag, $active);
 

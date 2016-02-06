@@ -1,21 +1,22 @@
 @extends('admin.layouts.master')
 
 @section('header_scripts')
-<link href="/adm/vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet">
+
 <link href="/adm/vendors/bower_components/summernote/dist/summernote.css" rel="stylesheet">
 <link href="/adm/vendors/farbtastic/farbtastic.css" rel="stylesheet">
 <link href="/adm/vendors/chosen_v1.4.2/chosen.min.css" rel="stylesheet">
+
 @stop
 
 @section('content')
 <section id="content">
     <div class="container">
         <div class="block-header">
-            <h2>News</h2>
+            <h2>Pagine</h2>
             
             <ul class="actions">
                 <li>
-                    <a href="/admin/news">
+                    <a href="/admin/pagine">
                         <i class="zmdi zmdi-format-list-bulleted"></i>
                     </a>
                 </li>
@@ -32,42 +33,34 @@
                 </li>
             </ul>
         </div>
-        <form role="form" method="POST" action="/admin/news/{{$news->id}}" enctype="multipart/form-data">
-        <input type="hidden" name="_method" value="PUT">
-        <input type="hidden" name="news_id" value="{{$news->id}}">
+        <form role="form" method="POST" action="/admin/pagine" enctype="multipart/form-data">
             {!! csrf_field() !!}
             <div class="card">
                 <div class="card-header">
-                    <h2>Modifica news : '{{$news->title}}'</h2>
+                    <h2>Crea Una Nuova Pagina</h2>
                 </div>
                 
                 <div class="card-body card-padding">
                     <div class="form-group fg-line">
                         <label for="title">Titolo</label>
-                        <input type="text" class="form-control input-sm" id="title" placeholder="Il titolo della news" name="title" value="{{$news->title}}" required>
+                        <input type="text" class="form-control input-sm" id="title" placeholder="Il titolo della pagina" name="title" required>
                     </div>
-                    <div class="form-group fg-line">
-                        <label for="excerpt">Breve descrizione</label>
-                        <textarea class="form-control"  rows="5" id="excerpt"  name="excerpt"  placeholder="La descrizione della news" required>{{$news->excerpt}}</textarea>
-                    </div>
-                    <div class="form-group fg-line">
-                        @include('admin.news.immagine_partial')
-                    </div>
+               
                 </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
-                    <h2>Testo news</h2>
+                    <h2>Testo Pagina</h2>
                 </div>
                 
                 <div class="card-body card-padding">
                     <div class="row">
-                        <textarea name="body"  class="html-editor" required>{{$news->body}}</textarea>
+                        <textarea name="content"  class="html-editor" required></textarea>
                     </div>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="card-header">
                     <h2>Categoria e Tags</h2>
@@ -75,8 +68,8 @@
                 
                 <div class="card-body card-padding">
                     <div class="row">
-                        @include('admin.layouts.partials.categories_partial', array('selected' => array_pluck($news->categories, 'id')))
-                        @include('admin.layouts.partials.tags_partial', array('selected' => array_pluck($news->tags, 'id')))
+                        @include('admin.layouts.partials.categories_partial', array('selected' => []))
+                        @include('admin.layouts.partials.tags_partial', array('selected' => []))
                     </div>
                 </div>
             </div>
@@ -86,13 +79,16 @@
                 <div class="card-body card-padding">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="on" name="active" @if($news->active == 1) checked @endif>
+                            <input type="checkbox" name="active" checked="">
                             <i class="input-helper"></i>
-                            Pubblica questa News
+                            Pubblica questa Pagina
                         </label>
                     </div>
                 </div>
             </div>
+
+            
+
             <div class="card">
                 
                 <div class="card-body card-padding">
@@ -135,6 +131,16 @@
 <script src="/adm/vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
 <script src="/adm/vendors/bower_components/summernote/dist/summernote.min.js"></script>
 <script src="/adm/vendors/chosen_v1.4.2/chosen.jquery.min.js"></script>
-<script src="/adm/vendors/fileinput/fileinput.min.js"></script>
 <script src="/adm/vendors/bower_components/autosize/dist/autosize.min.js"></script>
+@stop
+
+@section('sidebar_scripts')
+        
+    <script>
+    
+    activateSidebar('pagine_menu', 'aggiungi_pagine');
+
+    </script>    
+
+
 @stop

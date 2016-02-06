@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Uniamo\Models;
+namespace Uniamo\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,16 @@ class Tags extends Model
     protected $table = 'tags';
 
 
-    public function prodotti()
+     public function news()
     {
         return $this->belongsToMany(News::class, 'news_tags', 'tag_id', 'news_id');
     }
+
+    public function pages()
+    {
+        return $this->belongsToMany(Pages::class, 'pages_tags', 'tag_id', 'page_id');
     }
+    
 
     public static function make($tag, $active)
     {
@@ -26,7 +31,7 @@ class Tags extends Model
         return $tag_object;
     }
 
-    public static function edit($ttag_id, $tag, $active)
+    public static function edit($tag_id, $tag, $active)
     {
         $tag = rtrim($tag);
 

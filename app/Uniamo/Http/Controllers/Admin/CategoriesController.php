@@ -49,7 +49,7 @@ class CategoriesController extends AdminController
 
         $category = $this->dispatchFrom('Uniamo\Commands\Categories\CreateCategoryCommand', $request, $data);
         
-        return redirect()->to('/admin/news/categorie');
+        return redirect()->to('/admin/categorie');
     }
 
     /**
@@ -93,7 +93,7 @@ class CategoriesController extends AdminController
 
         flash()->success('Categoria aggiornata correttamente.');
 
-        return redirect()->to('/admin/news/categorie');
+        return redirect()->to('/admin/categorie');
     }
 
     /**

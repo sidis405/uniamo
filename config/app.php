@@ -145,7 +145,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        *
+         */
 
+        App\Providers\BusServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         // Spatie\Permission\PermissionServiceProvider::class,
         // Ibi\Providers\IbiPermissionSerciceProvider::class,

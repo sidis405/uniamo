@@ -4,7 +4,9 @@ namespace Uniamo\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use Uniamo\Repositories\CategoriesRepo;
 use Uniamo\Repositories\NewsRepo;
+use Uniamo\Repositories\TagsRepo;
 use Illuminate\Http\Request;
 
 
@@ -30,9 +32,11 @@ class NewsController extends AdminController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(CategoriesRepo $categories_repo, TagsRepo $tags_repo)
     {
-        return view('admin.news.create');
+        $categories = $categories_repo->getAll();
+        $tags = $tags_repo->getAll();
+        return view('admin.news.create', compact('categories', 'tags'));
     }
 
 
@@ -72,11 +76,14 @@ class NewsController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, NewsRepo $news_repo)
+    public function edit($id, NewsRepo $news_repo, CategoriesRepo $categories_repo, TagsRepo $tags_repo)
     {
+        $categories = $categories_repo->getAll();
+        $tags = $tags_repo->getAll();
         $news = $news_repo->getById($id);
 
-        return view('admin.news.edit', compact('news'));
+
+        return view('admin.news.edit', compact('news', 'categories', 'tags'));
     }
 
     /**
@@ -114,11 +121,11 @@ class NewsController extends AdminController
     {
         $data = [];
 
-        if($request->hasFile('immagine_path'))
+        if($request->hasFile('image_path'))
         {
-            $data['immagine_path'] = $request->file('immagine_path');
+            $data['image_path'] = $request->file('image_path');
         }else{
-            $data['immagine_path'] = false;
+            $data['image_path'] = false;
         }
 
         if($request->has('active'))

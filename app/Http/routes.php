@@ -10,10 +10,13 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function () {
 
     //NEWS SECTION
     include(__DIR__.'/../Uniamo/Routes/routes_news.php');
+
+    //TAXONOMY
     include(__DIR__.'/../Uniamo/Routes/routes_categories.php');
     include(__DIR__.'/../Uniamo/Routes/routes_tags.php');
 
     //PAGES SECTION
+    include(__DIR__.'/../Uniamo/Routes/routes_pages.php');
 
     //MENU SECTION
     

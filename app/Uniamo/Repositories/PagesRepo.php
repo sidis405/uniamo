@@ -2,38 +2,36 @@
 
 namespace Uniamo\Repositories;
 
-use Uniamo\Models\Tags;
+use Uniamo\Models\Pages;
 
 /**
-* Tags Repo
+* Pages Repo
 */
-class TagsRepo
+class PagesRepo
 {
-    public function save(Tags $tag)
+    public function save(Pages $page)
     {
-        $tag->save();
+        $page->save();
 
-        return $tag;
+        return $page;
     }
 
     public function remove($id)
     {
-        $tag = $this->getById($id);
+        $page = $this->getById($id);
 
-        if( count($tag->news ) > 0) return false;
-
-        $tag->delete();
+        $page->delete();
 
         return true;
     }
 
     public function getAll()
     {
-        return Tags::with('news')->orderBy('nome')->get();
+        return Pages::with('categories', 'tags')->orderBy('created_at', 'DESC')->get();
     } 
 
     public function getById($id)
     {
-        return Tags::where('id', $id)->with('news')->first();
+        return Pages::with('categories', 'tags')->where('id', $id)->first();
     } 
 }

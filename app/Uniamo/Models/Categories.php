@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Uniamo\Models;
+namespace Uniamo\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,16 @@ class Categories extends Model
     protected $table = 'categories';
 
 
-    public function prodotti()
+    public function news()
     {
         return $this->belongsToMany(News::class, 'categories_news', 'category_id', 'news_id');
     }
+
+    public function pages()
+    {
+        return $this->belongsToMany(Pages::class, 'categories_pages', 'category_id', 'page_id');
     }
+    
 
     public static function make($category, $active)
     {

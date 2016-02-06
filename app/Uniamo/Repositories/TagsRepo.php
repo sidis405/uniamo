@@ -29,11 +29,11 @@ class TagsRepo
 
     public function getAll()
     {
-        return Tags::with('news')->orderBy('nome')->get();
+        return Tags::with('news', 'pages')->orderBy('tag')->get();
     } 
 
     public function getById($id)
     {
-        return Tags::where('id', $id)->with('news')->first();
+        return Tags::where('id', $id)->with('news', 'pages')->first();
     } 
 }
