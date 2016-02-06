@@ -164,3 +164,20 @@ h6, .h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+.news-image-container {
+  width: 100%;
+}
+
+.news-image {
+  margin-bottom: 15px;
+}
+
+.read-more {
+  float: right;
+  font-size: 14px;
+  display: block;
+}
+
+
+

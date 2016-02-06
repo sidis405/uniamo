@@ -20,7 +20,8 @@ class CategoriesRepo
     {
         $category = $this->getById($id);
 
-        if( count($category->news ) > 0) return false;
+        $category->news()->detach();
+        $category->pages()->detach();
 
         $category->delete();
 
@@ -36,4 +37,10 @@ class CategoriesRepo
     {
         return Categories::where('id', $id)->with('news', 'pages')->first();
     } 
+
+    public function getBySlug($slug)
+    {
+        return Categories::with('news')->where('slug', $slug)->first();
+    } 
+
 }

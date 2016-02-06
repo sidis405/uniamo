@@ -46,6 +46,7 @@
                                 <tr>
                                     <th data-column-id="id" data-identifier="true"  data-type="numeric">ID</th>
                                     <th data-column-id="titolo">Titolo</th>
+                                    <th data-column-id="author">Creato da</th>
                                     <th data-column-id="data-creazione">Data Creazione</th>
                                     <th data-column-id="commands" data-formatter="commands" data-sortable="false">Azioni</th>
                                 </tr>
@@ -56,6 +57,7 @@
                                 <tr>
                                     <td>{{$item->id}}</td>
                                     <td>{{$item->title}}</td>
+                                    <td>{{$item->user->name}}</td>
                                     <td>{{$item->created_at->format('d-m-y H:i')}}</td>
                                 </tr>
                             @endforeach

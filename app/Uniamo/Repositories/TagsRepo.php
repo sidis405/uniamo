@@ -20,7 +20,8 @@ class TagsRepo
     {
         $tag = $this->getById($id);
 
-        if( count($tag->news ) > 0) return false;
+        $tag->news()->detach();
+        $tag->pages()->detach();
 
         $tag->delete();
 
@@ -35,5 +36,10 @@ class TagsRepo
     public function getById($id)
     {
         return Tags::where('id', $id)->with('news', 'pages')->first();
+    } 
+
+    public function getBySlug($slug)
+    {
+        return Tags::with('news')->where('slug', $slug)->first();
     } 
 }

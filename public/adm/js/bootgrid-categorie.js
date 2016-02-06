@@ -44,7 +44,7 @@ $(document).ready(function(){
                                     showLoaderOnConfirm: true
                                 }, function(){   
                                     swal("Cancellato!", "La categoria e stata cancellata con successo.", "success"); 
-                                    deleteResource(id, 'categories');
+                                    deleteResource(id, 'categorie');
                                     $("#data-table-command").bootgrid('remove', rows);
                                 });
                             

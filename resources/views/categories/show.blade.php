@@ -3,17 +3,16 @@
 @section('content')
 
 <div class="blog-header">
-        <h1 class="blog-title">Uniamo.Org</h1>
-        <p class="lead blog-description">The official page.</p>
+        <h1 class="blog-title">Categoria : {{$category->category}}</h1>
       </div>
 
       <div class="row">
 
         <div class="col-sm-8 blog-main">
           
-          @if(count($news) > 0)
+          @if(count($category->news) > 0)
             
-            @foreach($news as $item)
+            @foreach($category->news as $item)
                   <div class="blog-post">
                     <h2 class="blog-post-title"><a href="/news/{{$item->id}}/{{$item->slug}}">{{$item->title}}</a></h2>
                     <p class="blog-post-meta">{{$item->created_at->format("F j, Y, g:i a")}} by <a href="/utente/{{$item->user->name}}">{{$item->user->name}}</a></p>
@@ -23,15 +22,13 @@
                       <div class="news-image-container">
                         <img src="/immagini/{{$item->image_path}}" class="news-image">
                       </div>
-
+                      
                     @endif
 
-                    <p>{{$item->excerpt}}
+                     <p>{{$item->excerpt}}
                         <a href="/news/{{$item->id}}/{{$item->slug}}" class="read-more">Leggi di più</a>
                     </p>
-                    
-                    @include('layouts.categories-tags')
-
+                     @include('layouts.categories-tags')
                     <hr>
                   </div><!-- /.blog-post -->
 

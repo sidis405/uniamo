@@ -20,6 +20,9 @@ class PagesRepo
     {
         $page = $this->getById($id);
 
+        $page->categories()->detach();
+        $page->tags()->detach();
+
         $page->delete();
 
         return true;
@@ -30,8 +33,18 @@ class PagesRepo
         return Pages::with('categories', 'tags')->orderBy('created_at', 'DESC')->get();
     } 
 
+    public function getAllFront()
+    {
+        return Pages::where('active', 1)->orderBy('created_at', 'DESC')->get();
+    } 
+
     public function getById($id)
     {
         return Pages::with('categories', 'tags')->where('id', $id)->first();
+    } 
+
+    public function getBySlug($slug)
+    {
+        return Pages::with('categories', 'tags')->where('slug', $slug)->first();
     } 
 }
