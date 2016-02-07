@@ -22,7 +22,12 @@ class NewsController extends FrontController
     {
         $news = $news_repo->getById($id);
 
-        return view('news.show', compact('news'));
+        $relatedByCategories = $news->relatedByCategories();
+        $relatedByTags = $news->relatedByTags();
+
+        $related = flattenRelatedForNews($relatedByCategories, $relatedByTags);
+
+        return view('news.show', compact('news', 'related'));
     }
 
 }

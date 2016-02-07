@@ -25,11 +25,13 @@
                      @include('layouts.categories-tags', array('item' =>$news))
                   </div><!-- /.blog-post -->
 
+        @include('layouts.related')
 
 
         </div><!-- /.blog-main -->
 
         @include('layouts.sidebar')
+
 
       </div><!-- /.row -->
       @stop

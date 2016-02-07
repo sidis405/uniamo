@@ -43,4 +43,6 @@ class Pages extends Model
 
         return $page;
     }
+
+    
 }

@@ -173,6 +173,10 @@ h6, .h6 {
   margin-bottom: 15px;
 }
 
+.news-image-boxed {
+  width:100%;
+}
+
 .read-more {
   float: right;
   font-size: 14px;

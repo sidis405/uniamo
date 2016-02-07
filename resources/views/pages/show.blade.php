@@ -15,11 +15,14 @@
                      @include('layouts.categories-tags', array('item' =>$page))
                   </div><!-- /.blog-post -->
 
+        @include('layouts.related')
 
 
         </div><!-- /.blog-main -->
 
         @include('layouts.sidebar')
 
-      </div><!-- /.row -->
+      </div>
+
+
       @stop

@@ -16,7 +16,14 @@ class PagesController extends FrontController
     {
         $page = $pages_repo->getBySlug($slug);
 
-        return view('pages.show', compact('page'));
+
+        list($relatedByCategories, $relatedByTags) = $pages_repo->getRelatedNewsByCategoryAndTags($page);
+
+        $related = flattenRelatedForPages($relatedByCategories, $relatedByTags);
+
+        // return $related;
+
+        return view('pages.show', compact('page', 'related'));
     }
 
 }
