@@ -162,6 +162,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Baum\Providers\BaumServiceProvider::class,
 
+        Sid\SimpleCache\SimpleCacheServiceProvider::class,
+
     ],
 
     /*

@@ -9,11 +9,16 @@ use Uniamo\Repositories\NewsRepo;
 
 class NewsController extends FrontController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('cachebefore', ['only' => ['show']]);
+        $this->middleware('cacheafter', ['only' => ['show']]);
+    }
     
     public function index(NewsRepo $news_repo)
     {
         $news = $news_repo->getAllFront();
-
         return view('news.index', compact('news'));
 
     }

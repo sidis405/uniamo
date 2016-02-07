@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6f891412198133e2c9d39eaa8fa5ad19",
-    "content-hash": "132fdff1b22a466a9c50a92c584e768e",
+    "hash": "88dcc9dd6e971f4fd09e959cad079d4b",
+    "content-hash": "7b266739e01d567b7a5633cb366ae9e1",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -1423,6 +1423,55 @@
                 "shell"
             ],
             "time": "2015-11-12 16:18:56"
+        },
+        {
+            "name": "sid/laravel-simplecache-middleware",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sidis405/laravel-simplecache-middleware.git",
+                "reference": "e9f46d4a39a68f62d7ab27e6129c5553751aec8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sidis405/laravel-simplecache-middleware/zipball/e9f46d4a39a68f62d7ab27e6129c5553751aec8c",
+                "reference": "e9f46d4a39a68f62d7ab27e6129c5553751aec8c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sid\\SimpleCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sidrit Trandafili",
+                    "email": "forge405@gmail.com",
+                    "homepage": "http://sidrit.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Cache Urls",
+            "homepage": "https://github.com/sidis405/laravel-simple-cache",
+            "keywords": [
+                "SID",
+                "cache",
+                "laravel",
+                "laravel-simple-cache"
+            ],
+            "time": "2015-09-14 13:45:31"
         },
         {
             "name": "spatie/laravel-permission",
@@ -3733,7 +3782,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "sid/laravel-simplecache-middleware": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

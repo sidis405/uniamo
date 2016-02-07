@@ -28,6 +28,14 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot($events);
 
-        //
+        \Event::listen('*', function()
+        {
+            $event = \Event::firing();
+            if(starts_with($event, "Uniamo\Events")) {
+                // logger("Event fired: " . $event . "\n");
+                \Cache::flush();
+                // logger("Cleared cache");
+            }
+        });
     }
 }

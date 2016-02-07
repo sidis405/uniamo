@@ -9,12 +9,17 @@ use Uniamo\Repositories\PagesRepo;
 
 class PagesController extends FrontController
 {
-    
-    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('cachebefore', ['only' => ['show']]);
+        $this->middleware('cacheafter', ['only' => ['show']]);
+    }
 
     public function show($slug, PagesRepo $pages_repo)
     {
         $page = $pages_repo->getBySlug($slug);
+
 
 
         list($relatedByCategories, $relatedByTags) = $pages_repo->getRelatedNewsByCategoryAndTags($page);
@@ -25,5 +30,4 @@ class PagesController extends FrontController
 
         return view('pages.show', compact('page', 'related'));
     }
-
 }
