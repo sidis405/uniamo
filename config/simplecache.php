@@ -2,8 +2,8 @@
 
 return [
 
-    'enabled' => false,
+    'enabled' => true,
 
-    'cache_time' => 4
+    'cache_time' => 60*24
 
 ];
